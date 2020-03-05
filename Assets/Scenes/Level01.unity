@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 11085013}
   - component: {fileID: 11085012}
   - component: {fileID: 11085011}
-  - component: {fileID: 11085014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -159,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d81bb935375f4d4fbd81da8386b5a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contactRadius: 0.5
   walkableLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -200,19 +200,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &11085014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11085009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2dec29a3136e84c877cbdbde9b56c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contactRadius: 0.5
 --- !u!1 &105085689
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +371,7 @@ GameObject:
   - component: {fileID: 196096123}
   - component: {fileID: 196096125}
   - component: {fileID: 196096124}
+  - component: {fileID: 196096126}
   m_Layer: 0
   m_Name: Nexus
   m_TagString: Finish
@@ -444,6 +432,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &196096126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196096122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fdf70adec4e7e419e4710fa9f31d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactRadius: 1.53
+  currentHealth: 0
+  stats:
+    maxHealth: 100
+    damage: 10
+    armor: 1
+    attackSpeed: 1
 --- !u!1 &477390213
 GameObject:
   m_ObjectHideFlags: 0

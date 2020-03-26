@@ -10,14 +10,20 @@ namespace NavGame.Core
     public class AttackGameObject : TouchableGameObject
     {
         public OfenceStats ofenceStats;
+        public string[] enemyLayers;
+        
+        [SerializeField]
+        protected List<DamageableGameObject> enemiesToAttack = new List<DamageableGameObject>();
+
         protected NavMeshAgent agent;
         float cooldown = 0f;
-
+        LayerMask enemyMask;
         public OnAttackHitEvent onAttackHit;
 
         protected virtual void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
+            enemyMask = LayerMask.GetMask(enemyLayers);
         }
         protected virtual void Update()
         {
@@ -29,7 +35,7 @@ namespace NavGame.Core
             {
                 cooldown = 1f / ofenceStats.attackSpeed;
                 target.TakeDamage(ofenceStats.damage);
-                if(onAttackHit != null)
+                if (onAttackHit != null)
                 {
                     onAttackHit(target.transform.position);
                 }
@@ -46,6 +52,17 @@ namespace NavGame.Core
             if (cooldown < 0f)
             {
                 cooldown = 0f;
+            }
+        }
+        void OnTriggerEnter(Collider other)
+        {
+            if (enemyMask.Contains(other.gameObject.layer))
+            {
+                DamageableGameObject obj = other.transform.parent.GetComponent<DamageableGameObject>();
+                if (!enemiesToAttack.Contains(obj))
+                {
+                    enemiesToAttack.Add(obj);
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ namespace NavGame.Core
     {
         public OfenceStats ofenceStats;
         public string[] enemyLayers;
-        
+
         [SerializeField]
         protected List<DamageableGameObject> enemiesToAttack = new List<DamageableGameObject>();
 
@@ -62,7 +62,18 @@ namespace NavGame.Core
                 if (!enemiesToAttack.Contains(obj))
                 {
                     enemiesToAttack.Add(obj);
+                    obj.onDied += () => { enemiesToAttack.Remove(obj); };
                 }
+            }
+        }
+
+
+         void OnTriggerExit(Collider other)
+        {
+            if (enemyMask.Contains(other.gameObject.layer))
+            {
+                DamageableGameObject obj = other.transform.parent.GetComponent<DamageableGameObject>();
+                enemiesToAttack.Remove(obj);
             }
         }
     }

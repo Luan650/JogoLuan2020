@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 4229715408004744545}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2481561433987574485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6930238007355509725}
+  m_Layer: 0
+  m_Name: DamagePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6930238007355509725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2481561433987574485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.91, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4229715408004744545}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4229715406295144135
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +244,7 @@ GameObject:
   - component: {fileID: 4324330393551784704}
   - component: {fileID: 5500826696197819534}
   - component: {fileID: 2944990357756886221}
+  - component: {fileID: 7723624102840083045}
   m_Layer: 0
   m_Name: Creep
   m_TagString: Untagged
@@ -234,6 +265,7 @@ Transform:
   m_Children:
   - {fileID: 4229715406538853546}
   - {fileID: 4705794693419461933}
+  - {fileID: 6930238007355509725}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -287,12 +319,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31992e563ec535544866e75deb9b4f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 6
   contactRadius: 0.5
   ofenceStats:
-    damage: 10
+    damage: 5
     attackSpeed: 1
+  attackRange: 4
   enemyLayers:
   - Infantry
+  enemiesToAttack: []
 --- !u!114 &4324330393551784704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,11 +340,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20fdf70adec4e7e419e4710fa9f31d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angularSpeed: 6
   contactRadius: 0.5
   defenseStats:
     maxHealth: 100
     armor: 1
   currentHealth: 0
+  damageTransform: {fileID: 6930238007355509725}
 --- !u!114 &5500826696197819534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,3 +375,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7723624102840083045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229715408004744557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400bf9839bdcfb54c8ffe28fc53d84b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageSound: splash-hit2
+  dieSound: splash-death2
+  damageEffects: {fileID: 7897285163739968507, guid: a7418d90a1d2b294496e3c7184914115,
+    type: 3}
+  dieEffects: {fileID: 0}

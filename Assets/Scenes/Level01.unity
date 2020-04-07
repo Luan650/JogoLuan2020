@@ -1075,6 +1075,18 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: 1038a387fba83da4690804ebe50e511d, type: 3}
   - name: fail
     audio: {fileID: 8300000, guid: b69b0f0a13f049b48abf2bbf1068dfaa, type: 3}
+  - name: splash-death1
+    audio: {fileID: 8300000, guid: a752812b3cdbff24ab55d4ca9c8b6e18, type: 3}
+  - name: splash-death2
+    audio: {fileID: 8300000, guid: e04e5d37ae796924495c41090c02af70, type: 3}
+  - name: splash-hit1
+    audio: {fileID: 8300000, guid: 2a675379b31a29f4bb343b8896729efc, type: 3}
+  - name: splash-hit2
+    audio: {fileID: 8300000, guid: 7cc6d96fc04a1f240a2f9a2b69dfa43a, type: 3}
+  - name: splash-strike1
+    audio: {fileID: 8300000, guid: 025398edae940ae4f9ebfb5b315fc944, type: 3}
+  - name: splash-strike2
+    audio: {fileID: 8300000, guid: 246c5ae16c65e7e46beef69961c73b06, type: 3}
   - name: level-complete
     audio: {fileID: 8300000, guid: 025398edae940ae4f9ebfb5b315fc944, type: 3}
 --- !u!4 &1223147649

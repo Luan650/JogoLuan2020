@@ -163,7 +163,6 @@ MonoBehaviour:
   walkableLayer:
     serializedVersion: 2
     m_Bits: 512
-  prefab: {fileID: 3348966225033220751, guid: d3426817735320d4a842a4b89bd715c0, type: 3}
 --- !u!195 &11085012
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -518,6 +517,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 196096123}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &338617152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 338617153}
+  m_Layer: 0
+  m_Name: CastPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &338617153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338617152}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.59, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2022061727}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417798050
 GameObject:
@@ -1589,20 +1618,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2022061722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0785cdd7d1e96fb43abe7b3a23ef6ff5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8966c4bbd0c52614897475a61e28c27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   angularSpeed: 6
   contactRadius: 0.5
   ofenceStats:
     damage: 10
-    attackSpeed: 1.2
+    attackSpeed: 1
   attackRange: 6
   attackDelay: 0.5
-  castTransform: {fileID: 0}
+  castTransform: {fileID: 338617153}
   enemyLayers:
   - Creep
   enemiesToAttack: []
+  projectilePrefab: {fileID: 3348966225033220751, guid: d3426817735320d4a842a4b89bd715c0,
+    type: 3}
 --- !u!135 &2022061724
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1666,6 +1697,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 671146733}
+  - {fileID: 338617153}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

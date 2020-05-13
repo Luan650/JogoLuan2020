@@ -1283,7 +1283,7 @@ MonoBehaviour:
   - {fileID: 1955835152}
   - {fileID: 50028392}
   - {fileID: 1007722206}
-  actionsCost:
+  actionCosts:
   - {fileID: 2048687558}
   - {fileID: 907335869}
   - {fileID: 74873957}

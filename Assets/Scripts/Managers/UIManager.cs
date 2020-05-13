@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public float errorTime = 1.5f;
     public Text coinText;
     public Text waveCountText;
+    public Text waveCountdownText;
     public GameObject[] cooldownObjects;
     public Text[] actionCosts;
 
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
         LevelManager.instance.onResourceUpdate += OnResourceUpdate; 
         LevelManager.instance.onReportableError += OnReportableError;
         LevelManager.instance.onWaveUpdate += OnWaveUpdate;
+        LevelManager.instance.onWaveCountdown += OnWaveCountdown;
     }
 
     void InitializeUI()
@@ -71,6 +73,11 @@ public class UIManager : MonoBehaviour
      void OnWaveUpdate(int totalWaves, int currentWaves)
      {
          waveCountText.text = currentWaves + " / " + totalWaves;
+     }
+
+     void OnWaveCountdown(float remainingTime)
+     {
+         waveCountdownText.text = remainingTime.ToString("F1");
      }
     IEnumerator TurnOffError()
     {
